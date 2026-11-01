@@ -133,5 +133,86 @@ class ProductSeeder extends Seeder
         'stock' => 35,
         'description' => 'অ্যান্টি-স্লিপ ৬ মিমি ম্যাট।',
     ]);
+
+    // ১৩. ট্রেডমিল
+    Product::create([
+        'name' => 'Manual Treadmill M1',
+        'category' => 'Gym',
+        'brand' => 'FitPro',
+        'price' => 18500,
+        'stock' => 5,
+        'description' => 'বাসায় সহজে ব্যায়াম করার জন্য ফোল্ডেবল ম্যানুয়াল ট্রেডমিল।',
+    ]);
+
+    // ১৪. পুশ আপ বার
+    Product::create([
+        'name' => 'Push Up Bar Stand',
+        'category' => 'Gym',
+        'brand' => 'GymShark',
+        'price' => 450,
+        'stock' => 50,
+        'description' => 'কব্জির ওপর চাপ না কমিয়ে পারফেক্ট পুশ-আপ দেওয়ার জন্য গ্রিপ বার।',
+    ]);
+
+    // ১৫. রেজিস্ট্যান্স ব্যান্ড
+    Product::create([
+        'name' => 'Resistance Band Set 5-in-1',
+        'category' => 'Gym',
+        'brand' => 'FitPro',
+        'price' => 750,
+        'stock' => 40,
+        'description' => '৫টি ভিন্ন ওজনের এবং কালারের ফুল বডি ওয়ার্কআউট ব্যান্ড সেট।',
+    ]);
+
+    // ১৬. এক্সারসাইজ বল
+    Product::create([
+        'name' => 'Gym Ball 65cm',
+        'category' => 'Gym',
+        'brand' => 'Bolster',
+        'price' => 850,
+        'stock' => 20,
+        'description' => 'ব্যালেন্স এবং কোর স্ট্রেন্থ বাড়ানোর জন্য অ্যান্টি-বার্স্ট জিম বল।',
+    ]);
+
+    // ১৭. রানিং গ্রিপ গ্লাভস
+    Product::create([
+        'name' => 'Gym Workout Gloves',
+        'category' => 'Gym',
+        'brand' => 'GymShark',
+        'price' => 350,
+        'stock' => 60,
+        'description' => 'হাতের তালু সুরক্ষায় আরামদায়ক এবং অ্যান্টি-স্লিপ গ্লাভস।',
+    ]);
+
+    // ১৮. অ্যাব রোলার
+    Product::create([
+        'name' => 'Ab Roller Wheel',
+        'category' => 'Gym',
+        'brand' => 'FitPro',
+        'price' => 600,
+        'stock' => 25,
+        'description' => 'পেটের চর্বি কমাতে এবং সিক্স প্যাক অ্যাবস তৈরির রোলার হুইল।',
+    ]);
+
+    // ১৯. রিস্ট সাপোর্ট গ্রিপার
+    Product::create([
+        'name' => 'Hand Gripper Adjustable',
+        'category' => 'Gym',
+        'brand' => 'Bolster',
+        'price' => 250,
+        'stock' => 80,
+        'description' => '১০ থেকে ৬০ কেজি পর্যন্ত অ্যাডজাস্টেবল হ্যান্ড গ্রিপার।',
+    ]);
+
+    // ২০. স্কিপিং রোপ
+    Product::create([
+        'name' => 'Digital Skipping Rope',
+        'category' => 'Gym',
+        'brand' => 'FitPro',
+        'price' => 400,
+        'stock' => 100,
+        'description' => 'জাম্প কাউন্টারসহ হাই-স্পিড ক্যালরি বার্নিং স্কিপিং রোপ।',
+    ]);
+
     }
 }

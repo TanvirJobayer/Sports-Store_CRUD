@@ -10,7 +10,7 @@
     <h1>All Products | Sports Store</h1>
     <hr>
     <p>Click this button to add new product: 👉 &nbsp;
-        <button style="background-color: bisque" onclick="window.location.href='/products/create'"> Add Products </button>
+        <button style="background-color: bisque; cursor:pointer;" onclick="window.location.href='/products/create'"> Add Products </button>
     </p>
     <br>
     <table border="1" cellspacing="0" cellpadding="10">
@@ -37,14 +37,14 @@
                 <td>{{$product->stock}}</td>
                 <td>{{$product->description}}</td>
                 <td style="white-space: nowrap">
-                    <button style="background-color: rgb(182, 246, 182)" onclick="window.location.href='/products/{{$product->id}}'"> Show </button>
-                    |
-                    <button style="background-color: rgb(138, 174, 251)" onclick="window.location.href='/products/{{$product->id}}/edit'"> Edit </button>
-                    |
+                    <button style="background-color: rgb(182, 246, 182); cursor:pointer;" onclick="window.location.href='/products/{{$product->id}}'"> Show </button>
+                    &nbsp;
+                    <button style="background-color: rgb(138, 174, 251); cursor:pointer;" onclick="window.location.href='/products/{{$product->id}}/edit'"> Edit </button>
+                    &nbsp;
                     <form action="/products/{{$product->id}}" method="post"  style="display:inline">
                         @csrf
                         @method('delete')
-                        <button style="background-color: rgb(229, 92, 92)"> Delete </button>
+                        <button style="background-color: rgb(229, 92, 92); cursor:pointer;"> Delete </button>
                     </form>
                 </td>
             </tr>
