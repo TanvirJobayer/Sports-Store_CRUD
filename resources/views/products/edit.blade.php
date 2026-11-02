@@ -9,33 +9,49 @@
 <body>
     <h1>Edit Product | Sports Store</h1>
     <hr>
-    <p>Click this button to go back to main menu: 👉 &nbsp;
+    <p style="white-space: nowrap;">Click this button to go back to main menu: 👉 &nbsp;
         <button style="background-color: bisque; cursor:pointer;" onclick="window.location.href='/products'"> All Products </button>
     </p>
     <br>
     <form action="/products/{{$product->id}}" method="post">
         @csrf
         @method('put')
+        @if ($errors->any())
+            <div role="alert" style="color: #b91c1c;">
+                <p>Please correct the following errors:</p>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <fieldset style="width: fit-content">
             <legend>Edit product: </legend>
             <br>
             <label for="name">Name:</label>
-            <input type="text" name="name" value="{{$product->name}}">
+            <input type="text" id="name" name="name" value="{{ old('name', $product->name) }}" required maxlength="255" @error('name') aria-invalid="true" @enderror>
+            @error('name') <span role="alert" style="color: #b91c1c;">{{ $message }}</span> @enderror
             <br><br>
             <label for="category">Category:</label>
-            <input type="text" name="category" value="{{$product->category}}">
+            <input type="text" id="category" name="category" value="{{ old('category', $product->category) }}" required maxlength="255" @error('category') aria-invalid="true" @enderror>
+            @error('category') <span role="alert" style="color: #b91c1c;">{{ $message }}</span> @enderror
             <br><br>
             <label for="brand">Brand:</label>
-            <input type="text" name="brand" value="{{$product->brand}}">
+            <input type="text" id="brand" name="brand" value="{{ old('brand', $product->brand) }}" maxlength="255" @error('brand') aria-invalid="true" @enderror>
+            @error('brand') <span role="alert" style="color: #b91c1c;">{{ $message }}</span> @enderror
             <br><br>
             <label for="price">Price:</label>
-            <input type="decimal" name="price" value="{{$product->price}}">
+            <input type="number" id="price" name="price" value="{{ old('price', $product->price) }}" min="0" step="0.01" required @error('price') aria-invalid="true" @enderror>
+            @error('price') <span role="alert" style="color: #b91c1c;">{{ $message }}</span> @enderror
             <br><br>
             <label for="stock">Stock:</label>
-            <input type="integer" name="stock" value="{{$product->stock}}">
+            <input type="number" id="stock" name="stock" value="{{ old('stock', $product->stock) }}" min="0" step="1" required @error('stock') aria-invalid="true" @enderror>
+            @error('stock') <span role="alert" style="color: #b91c1c;">{{ $message }}</span> @enderror
             <br><br>
             <label for="description">Description:</label>
-            <input type="text" name="description" value="{{$product->description}}">
+            <input type="text" id="description" name="description" value="{{ old('description', $product->description) }}" @error('description') aria-invalid="true" @enderror>
+            @error('description') <span role="alert" style="color: #b91c1c;">{{ $message }}</span> @enderror
             <br><br>
             <hr><br>
             <button type="submit" style="background-color: rgb(182, 246, 182); display: block; margin: 0 auto; cursor:pointer; padding:0 .5in"> Save Changes </button>
@@ -44,4 +60,3 @@
     </form>
 </body>
 </html>
-

@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
     public function index()
     {
         $products = Product::all();
+
         return view('products.index', compact('products'));
     }
 
@@ -20,14 +20,8 @@ class ProductController extends Controller
 
     public function store()
     {
-        $product = new Product();
-        $product->name = request('name');
-        $product->category = request('category');
-        $product->brand = request('brand');
-        $product->price = request('price');
-        $product->stock = request('stock');
-        $product->description = request('description');
-        $product->save();
+        $validated = request()->validate($this->productRules());
+        $product = Product::create($validated);
 
         return redirect()->route('products.show', $product->id);
     }
@@ -35,25 +29,21 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::findOrFail($id);
+
         return view('products.show', compact('product'));
     }
 
     public function edit($id)
     {
         $product = Product::findOrFail($id);
+
         return view('products.edit', compact('product'));
     }
 
     public function update($id)
     {
         $product = Product::findOrFail($id);
-        $product->name = request('name');
-        $product->category = request('category');
-        $product->brand = request('brand');
-        $product->price = request('price');
-        $product->stock = request('stock');
-        $product->description = request('description');
-        $product->save();
+        $product->update(request()->validate($this->productRules()));
 
         return redirect()->route('products.show', $product->id);
     }
@@ -64,5 +54,20 @@ class ProductController extends Controller
         $product->delete();
 
         return redirect()->route('products.index');
+    }
+
+    /**
+     * @return array<string, array<int, string>>
+     */
+    private function productRules(): array
+    {
+        return [
+            'name' => ['required', 'string', 'max:255'],
+            'category' => ['required', 'string', 'max:255'],
+            'brand' => ['nullable', 'string', 'max:255'],
+            'price' => ['required', 'numeric', 'min:0', 'decimal:0,2', 'max:99999999.99'],
+            'stock' => ['required', 'integer', 'min:0'],
+            'description' => ['nullable', 'string'],
+        ];
     }
 }

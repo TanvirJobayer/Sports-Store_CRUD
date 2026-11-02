@@ -9,7 +9,7 @@
 <body>
     <h1>All Products | Sports Store</h1>
     <hr>
-    <p>Click this button to add new product: 👉 &nbsp;
+    <p style="white-space: nowrap;">Click this button to add new product: 👉 &nbsp;
         <button style="background-color: bisque; cursor:pointer;" onclick="window.location.href='/products/create'"> Add Products </button>
     </p>
     <br>

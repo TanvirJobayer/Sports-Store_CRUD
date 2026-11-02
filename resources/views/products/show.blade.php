@@ -9,7 +9,7 @@
 <body>
     <h1>Product Detail | Sports Store</h1>
     <hr>
-    <p>Click this button to go back to main menu: 👉 &nbsp;
+    <p style="white-space: nowrap;">Click this button to go back to main menu: 👉 &nbsp;
         <button style="background-color: bisque; cursor:pointer;" onclick="window.location.href='/products'"> All Products </button>
     </p>
     <br>
